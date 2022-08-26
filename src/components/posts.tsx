@@ -26,7 +26,6 @@ export const posts = () => {
   `);
   
   const posts = data.allMediumFeed.nodes as Array<Post>;
-  console.log(posts)
   
   return (
     <ul>
