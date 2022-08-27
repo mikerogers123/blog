@@ -1,9 +1,13 @@
 import React from "react";
 
 export default function ThemeSelector() {
-  const [selectedTheme, setSelectedTheme] = React.useState("light");
+  const userPreference = localStorage.getItem("theme");
+  
+  const [selectedTheme, setSelectedTheme] = React.useState(
+    userPreference || "light"
+  );
 
-  const setTheme = (option: ThemeOptions) => {
+  const setThemeCssVariables = (option: ThemeOptions) => {
     const theme = themeMap[option];
 
     for (const cssVariableName in theme) {
@@ -13,17 +17,20 @@ export default function ThemeSelector() {
         cssPropertyValue
       );
     }
-
-    setSelectedTheme(option);
   };
+
+  if (userPreference != null) {
+    setThemeCssVariables(userPreference as ThemeOptions);
+  }
 
   return (
     <div className="btn-group">
       {themes.map((theme) => (
-        <button
-          className="btn btn-default"
-          onClick={() => setTheme(theme)}
-        >
+        <button className="btn btn-default" onClick={() => {
+            setThemeCssVariables(theme);
+            localStorage.setItem("theme", theme);
+            setSelectedTheme(theme);
+          }}>
           {theme}
         </button>
       ))}
