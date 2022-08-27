@@ -22,7 +22,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
         nodes {
           title
           id
-          date
+          date(formatString: "MMM Do, YYYY")
           content
         }
       }

@@ -18,7 +18,7 @@ export default function Posts(): JSX.Element {
           slug
           title
           id
-          date
+          date(formatString: "MMM Do, YYYY")
         }
       }
     }
