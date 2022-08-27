@@ -1,5 +1,6 @@
 import { Link } from "gatsby";
 import React from "react";
+import ThemeSelector from "./theme-selector";
 
 export default function Layout({ children }:any) {
   return (
@@ -11,9 +12,8 @@ export default function Layout({ children }:any) {
           </header>
           <nav className="terminal-menu">
             <ul vocab="https://schema.org/" typeof="BreadcrumbList">
-              <li>
-                <a href="https://github.com/mikerogers123" className="menu-item active"><span>GitHub</span></a>
-                <meta property="position" />
+              <li>                
+                <ThemeSelector></ThemeSelector>
               </li>
             </ul>
           </nav>
