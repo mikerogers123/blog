@@ -3,7 +3,7 @@ import React from "react";
 const windowGlobal = (typeof window !== 'undefined' && window) as Window;
 
 export default function ThemeSelector() {
-  const userPreference = windowGlobal.localStorage.getItem("theme");
+  const userPreference = windowGlobal == null ? null : windowGlobal.localStorage.getItem("theme");
   
   const [selectedTheme, setSelectedTheme] = React.useState(
     userPreference || "light"
@@ -30,7 +30,9 @@ export default function ThemeSelector() {
       {themes.map((theme) => (
         <button className="btn btn-default" onClick={() => {
             setThemeCssVariables(theme);
-            windowGlobal.localStorage.setItem("theme", theme);
+            if (windowGlobal) {
+                windowGlobal.localStorage.setItem("theme", theme);
+            }
             setSelectedTheme(theme);
           }}>
           {theme}
