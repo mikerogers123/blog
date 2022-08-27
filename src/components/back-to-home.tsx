@@ -1,7 +1,7 @@
 import { Link } from "gatsby";
 import React from "react";
 
-export const backToHomeLink = () => {
+export default function BackToHomeLink() {
     return (
       <Link to="/">
         Back to home

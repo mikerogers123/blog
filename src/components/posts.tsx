@@ -2,15 +2,14 @@ import { graphql, Link, useStaticQuery } from "gatsby";
 import React from "react";
 
 type Post = {
-  thumbnail: string,
-  slug: string,
-  title: string,
-  id: string,
-  date: string
-}
+  thumbnail: string;
+  slug: string;
+  title: string;
+  id: string;
+  date: string;
+};
 
-export const posts = () => {
-  
+export default function Posts(): JSX.Element {
   const data = useStaticQuery(graphql`
     query AllMediumFeed {
       allMediumFeed {
@@ -24,19 +23,22 @@ export const posts = () => {
       }
     }
   `);
-  
+
   const posts = data.allMediumFeed.nodes as Array<Post>;
-  
-  return (
-    <ul>
-      {posts.map(post => (
-          <li key={post.id}>
-            <Link to={`/${post.id}`} key={post.id}>
-              <header>{post.title}</header>
-            </Link>
-            <div>Posted on {post.date}</div>
-          </li>
-        ))}
-    </ul>
-  );
+
+  return <div>{posts.map(postElement)}</div>;
 }
+
+const postElement = (p: Post) => {
+  return (
+    <div>
+      <hr></hr>
+      <h2>
+        <Link to={`/${p.id}`} key={p.id}>
+          {p.title}
+        </Link>
+      </h2>
+      <h5>Posted on {p.date} </h5>
+    </div>
+  );
+};

@@ -1,5 +1,6 @@
 import React from "react";
-import { backToHomeLink } from "../components/back-to-home";
+import BackToHomeLink from "../components/back-to-home";
+import Layout from "../components/layout";
 
 type PostData = {
   title: string;
@@ -10,13 +11,13 @@ type PostData = {
 
 const Post = (data: {pageContext: PostData}) => {
     return (
-        <section>
-            {backToHomeLink()}
+        <Layout>
+            <BackToHomeLink></BackToHomeLink>
             <h1>{data.pageContext.title}</h1>
             <h3>Posted on {data.pageContext.date}</h3>
             <hr></hr>
             <div dangerouslySetInnerHTML={{ __html: data.pageContext.content }} />
-        </section>
+        </Layout>
     );
 };
 

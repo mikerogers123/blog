@@ -1,12 +1,13 @@
 import * as React from "react"
 import type { HeadFC } from "gatsby"
-import { posts } from "../components/posts"
+import Posts from "../components/posts"
+import Layout from "../components/layout"
 
 const IndexPage = () => {
   return (
-    <main>
-      {posts()}
-    </main>
+    <Layout>
+      <Posts></Posts>
+    </Layout>
   )
 }
 
