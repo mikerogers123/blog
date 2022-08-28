@@ -13,20 +13,14 @@ const windowGlobal = (typeof window !== 'undefined' && window) as Window;
 export default function ThemeSelector() {
   const userPreference = windowGlobal?.localStorage == null ? null : windowGlobal.localStorage.getItem("theme");
   
-  const [selectedTheme, setSelectedTheme] = React.useState(
+  const [currentTheme, setSelectedTheme] = React.useState(
     userPreference || "light"
   );
 
-  const setThemeCssVariables = (option: ThemeOptions) => {
-    const theme = themeMap[option];
+  const newThemeOption = currentTheme === "light" ? "dark" : "light";
 
-    for (const cssVariableName in theme) {
-      const cssPropertyValue: string = (theme as any)[cssVariableName];
-      document.documentElement.style.setProperty(
-        cssVariableName,
-        cssPropertyValue
-      );
-    }
+  const toggleThemeCssVariables = () => {
+    setThemeCssVariables(newThemeOption);
   };
 
   if (userPreference != null) {
@@ -35,17 +29,15 @@ export default function ThemeSelector() {
 
   return (
     <div className="btn-group">
-      {themes.map((theme) => (
         <button className="btn btn-default" onClick={() => {
-            setThemeCssVariables(theme);
+            toggleThemeCssVariables();
             if (windowGlobal?.localStorage != null) {
-                windowGlobal.localStorage.setItem("theme", theme);
+                windowGlobal.localStorage.setItem("theme", newThemeOption);
             }
-            setSelectedTheme(theme);
+            setSelectedTheme(newThemeOption);
           }}>
-            <FontAwesomeIcon icon={iconMap[theme]} size="1x" />
+            <FontAwesomeIcon icon={iconMap[newThemeOption]} size="1x" />
         </button>
-      ))}
     </div>
   );
 }
@@ -97,3 +89,15 @@ const themeMap: Record<ThemeOptions, Theme> = {
     "--code-bg-color": "#3f3f44",
   },
 };
+
+const setThemeCssVariables = (option: ThemeOptions) => {
+    const theme = themeMap[option];
+
+    for (const cssVariableName in theme) {
+      const cssPropertyValue: string = (theme as any)[cssVariableName];
+      document.documentElement.style.setProperty(
+        cssVariableName,
+        cssPropertyValue
+      );
+    }
+  };
