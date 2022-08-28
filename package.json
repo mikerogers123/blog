@@ -16,7 +16,11 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.3.0",
+    "@fortawesome/free-solid-svg-icons": "^6.1.2",
+    "@fortawesome/react-fontawesome": "^0.2.0",
     "gatsby": "^4.21.1",
+    "gatsby-plugin-fontawesome-css": "^1.2.0",
     "gatsby-plugin-sass": "^5.21.0",
     "gatsby-source-medium-feed": "^1.0.6",
     "react": "^18.1.0",

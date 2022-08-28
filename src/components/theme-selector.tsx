@@ -1,4 +1,12 @@
+import { IconProp, library } from "@fortawesome/fontawesome-svg-core";
+import { faMoon, faSun } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
+
+library.add(
+    faMoon,
+    faSun
+)
 
 const windowGlobal = (typeof window !== 'undefined' && window) as Window;
 
@@ -35,7 +43,7 @@ export default function ThemeSelector() {
             }
             setSelectedTheme(theme);
           }}>
-          {theme}
+            <FontAwesomeIcon icon={iconMap[theme]} size="1x" />
         </button>
       ))}
     </div>
@@ -56,6 +64,11 @@ interface Theme {
   "--progress-bar-background": string;
   "--progress-bar-fill": string;
   "--code-bg-color": string;
+}
+
+const iconMap: Record<ThemeOptions, IconProp> = {
+    light: "sun",
+    dark: "moon"
 }
 
 const themeMap: Record<ThemeOptions, Theme> = {
