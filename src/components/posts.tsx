@@ -1,5 +1,6 @@
 import { graphql, Link, useStaticQuery } from "gatsby";
 import React, { ChangeEvent, useState } from "react";
+import { estimateReadTime } from "../functions/reading-time";
 import { searchMatches } from "../functions/search";
 import { Post } from "../models/post";
 
@@ -58,7 +59,7 @@ const postElement = (p: Post) => {
           {p.title}
         </Link>
       </h2>
-      <h5>Posted on {p.date} </h5>
+      <h5>Posted on {p.date} | {estimateReadTime(p)} min read</h5>
     </div>
   );
 };
