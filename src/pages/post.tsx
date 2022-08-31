@@ -1,13 +1,7 @@
 import React from "react";
 import BackToHomeLink from "../components/back-to-home";
 import Layout from "../components/layout";
-
-type PostData = {
-  title: string;
-  id: string;
-  date: string;
-  content: string;
-};
+import { Post as PostData } from "../models/post";
 
 const Post = (data: {pageContext: PostData}) => {
     return (

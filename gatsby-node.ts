@@ -20,6 +20,8 @@ export const createPages: GatsbyNode["createPages"] = async ({
     query AllMediumFeedContent {
       allMediumFeed {
         nodes {
+          thumbnail
+          slug
           title
           id
           date(formatString: "MMM Do, YYYY")
