@@ -18,7 +18,8 @@ const config: GatsbyConfig = {
         name: 'MediumFeed', // GraphQL query AllMediumFeed
       },
     },
-    "gatsby-plugin-fontawesome-css"
+    "gatsby-plugin-fontawesome-css",
+    "gatsby-plugin-react-helmet"
   ]
 };
 

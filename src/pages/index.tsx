@@ -1,16 +1,15 @@
-import * as React from "react"
-import type { HeadFC } from "gatsby"
-import Posts from "../components/posts"
-import Layout from "../components/layout"
+import * as React from "react";
+import Posts from "../components/posts";
+import Layout from "../components/layout";
+import Head from "../components/head";
 
 const IndexPage = () => {
   return (
     <Layout>
+      <Head title="Blog"/>
       <Posts></Posts>
     </Layout>
-  )
-}
+  );
+};
 
-export default IndexPage
-
-export const Head: HeadFC = () => <title>Home Page</title>
+export default IndexPage;

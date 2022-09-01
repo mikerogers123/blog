@@ -1,10 +1,12 @@
 import * as React from "react"
-import { Link, HeadFC } from "gatsby"
+import { Link } from "gatsby"
 import Layout from "../components/layout"
+import Head from "../components/head"
 
 const NotFoundPage = () => {
   return (
     <Layout>
+      <Head title="Page not found"/>
       <h1>Page not found</h1>
       <p>
         Sorry 😔, we couldn’t find what you were looking for.
@@ -24,5 +26,3 @@ const NotFoundPage = () => {
 }
 
 export default NotFoundPage
-
-export const Head: HeadFC = () => <title>Not found</title>

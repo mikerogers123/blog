@@ -1,5 +1,6 @@
 import React from "react";
 import BackToHomeLink from "../components/back-to-home";
+import Head from "../components/head";
 import Layout from "../components/layout";
 import { Post as PostData } from "../models/post";
 import { PostMetadata } from "../models/post-metadata";
@@ -11,11 +12,12 @@ type PostPageInput = {
 const Post = (data: PostPageInput) => {
   return (
     <Layout>
+      <Head title={data.pageContext.title}/>
       <BackToHomeLink></BackToHomeLink>
       <h1>{data.pageContext.title}</h1>
       <h3>
-        Posted on {data.pageContext.date} | {data.pageContext.estimatedReadTime} min read
-        read time
+        Posted on {data.pageContext.date} | {data.pageContext.estimatedReadTime}{" "}
+        min read read time
       </h3>
       <hr></hr>
       <div dangerouslySetInnerHTML={{ __html: data.pageContext.content }} />
