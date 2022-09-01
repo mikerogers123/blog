@@ -30,7 +30,7 @@ export default function Posts(): JSX.Element {
   const filteredPosts = posts.filter(searchMatches(searchTerm));
 
   return (
-    <form action="#">
+    <form>
       <fieldset>
         <legend>({filteredPosts.length}) posts</legend>
         <div className="form-group">
@@ -42,9 +42,11 @@ export default function Posts(): JSX.Element {
             onChange={handleChange}
           />
         </div>
-        {filteredPosts.length > 0
-          ? filteredPosts.map(postElement)
-          : noPostsElement()}
+        <ul>
+          {filteredPosts.length > 0
+            ? filteredPosts.map(postElement)
+            : noPostsElement()}
+        </ul>
       </fieldset>
     </form>
   );
@@ -52,15 +54,19 @@ export default function Posts(): JSX.Element {
 
 const postElement = (p: Post) => {
   return (
-    <div>
-      <hr></hr>
-      <h2>
-        <Link to={`/${p.id}`} key={p.id}>
-          {p.title}
-        </Link>
-      </h2>
-      <h5>Posted on {p.date} | {estimateReadTime(p)} min read</h5>
-    </div>
+    <>
+      <br></br>
+      <li>
+        <div>
+          <Link to={`/${p.id}`} key={p.id}>
+            {p.title}
+          </Link>
+        </div>
+        <small>
+          {p.date} | {estimateReadTime(p)} min read
+        </small>
+      </li>
+    </>
   );
 };
 

@@ -15,10 +15,10 @@ const Post = (data: PostPageInput) => {
       <Head title={data.pageContext.title}/>
       <BackToHomeLink></BackToHomeLink>
       <h1>{data.pageContext.title}</h1>
-      <h3>
-        Posted on {data.pageContext.date} | {data.pageContext.estimatedReadTime}{" "}
-        min read read time
-      </h3>
+      <p>
+        {data.pageContext.date} | {data.pageContext.estimatedReadTime}{" "}
+        min read
+      </p>
       <hr></hr>
       <div dangerouslySetInnerHTML={{ __html: data.pageContext.content }} />
     </Layout>

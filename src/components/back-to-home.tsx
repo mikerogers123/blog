@@ -4,7 +4,7 @@ import React from "react";
 export default function BackToHomeLink() {
     return (
       <Link to="/">
-        Back to home
+        &#171; all posts
       </Link>
     );
 }
