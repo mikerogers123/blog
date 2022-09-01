@@ -19,7 +19,13 @@ const config: GatsbyConfig = {
       },
     },
     "gatsby-plugin-fontawesome-css",
-    "gatsby-plugin-react-helmet"
+    "gatsby-plugin-react-helmet",
+    {
+      resolve: 'gatsby-plugin-manifest',
+      options: {
+        icon: 'src/assets/images/favicon.png',
+      },
+    },
   ]
 };
 
