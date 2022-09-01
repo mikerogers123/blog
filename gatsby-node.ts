@@ -2,10 +2,23 @@
 // imported by Gatsby instead of gatsby-node.js.
 
 // Use the type definitions that are included with Gatsby.
-import { GatsbyNode } from "gatsby";
+import { CreateWebpackConfigArgs, GatsbyNode } from "gatsby";
 import { resolve } from "path";
 import { estimateReadTime } from "./src/functions/reading-time";
 import { Post } from "./src/models/post";
+import webpack from "webpack";
+
+export const onCreateWebpackConfig: GatsbyNode["onCreateWebpackConfig"] = ({ actions }: CreateWebpackConfigArgs) => {
+  actions.setWebpackConfig({
+    plugins: [
+      new webpack.DefinePlugin({
+        'process.env.VERSION': JSON.stringify(
+          process.env.npm_package_version,
+        ),
+      }),
+    ]
+  });
+}
 
 export const createPages: GatsbyNode["createPages"] = async ({
   actions,
