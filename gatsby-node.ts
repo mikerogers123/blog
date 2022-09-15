@@ -4,7 +4,6 @@
 // Use the type definitions that are included with Gatsby.
 import { GatsbyNode } from "gatsby";
 import { resolve } from "path";
-import { estimateReadTime } from "./src/functions/reading-time";
 import { Post } from "./src/models/post";
 
 export const createPages: GatsbyNode["createPages"] = async ({
@@ -39,8 +38,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
       path: id,
       component: resolve(__dirname, "./src/pages/post.tsx"),
       context: {
-        ...node,
-        estimatedReadTime: estimateReadTime(node)
+        ...node
       },
     });
   });

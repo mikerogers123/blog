@@ -2,6 +2,7 @@ import React from "react";
 import BackToHomeLink from "../components/back-to-home";
 import Head from "../components/head";
 import Layout from "../components/layout";
+import ReadTime from "../components/read-time";
 import { Post as PostData } from "../models/post";
 import { PostMetadata } from "../models/post-metadata";
 
@@ -16,8 +17,7 @@ const Post = (data: PostPageInput) => {
       <BackToHomeLink></BackToHomeLink>
       <h1>{data.pageContext.title}</h1>
       <p>
-        {data.pageContext.date} | {data.pageContext.estimatedReadTime}{" "}
-        min read
+        {data.pageContext.date} | <ReadTime post={data.pageContext}></ReadTime>
       </p>
       <hr></hr>
       <div dangerouslySetInnerHTML={{ __html: data.pageContext.content }} />

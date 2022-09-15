@@ -3,6 +3,7 @@ import React, { ChangeEvent, useState } from "react";
 import { estimateReadTime } from "../functions/reading-time";
 import { searchMatches } from "../functions/search";
 import { Post } from "../models/post";
+import ReadTime from "./read-time";
 
 export default function Posts(): JSX.Element {
   const [searchTerm, setSearchTerm] = useState("");
@@ -63,7 +64,7 @@ const postElement = (p: Post) => {
           </Link>
         </div>
         <small>
-          {p.date} | {estimateReadTime(p)} min read
+          {p.date} | <ReadTime post={p}></ReadTime>
         </small>
       </li>
     </>
