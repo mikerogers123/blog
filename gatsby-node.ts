@@ -36,7 +36,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
 
     createPage({
       path: id,
-      component: resolve(__dirname, "./src/pages/post.tsx"),
+      component: resolve(__dirname, "./src/components/post.tsx"),
       context: {
         ...node
       },
