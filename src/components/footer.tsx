@@ -10,14 +10,18 @@ export default function Footer() {
     <div>
       <hr></hr>
       <p>
-        Made with <a href="https://www.gatsbyjs.com/docs/">GatsbyJS</a>, styled
-        with <a href="https://terminalcss.xyz/">Terminal CSS</a>
+        <small>
+          Built with <a href="https://www.gatsbyjs.com/docs/">GatsbyJS</a>,
+          styled using <a href="https://terminalcss.xyz/">Terminal CSS</a>
+        </small>
       </p>
       <button
-        className="btn btn-primary right"
+        className="btn btn-ghost right"
         onClick={(e) => {
           e.preventDefault();
-          window.location.href = "https://github.com/mikerogers123/blog";
+          window
+            .open("https://github.com/mikerogers123/blog", "_blank")
+            ?.focus();
         }}
       >
         <FontAwesomeIcon icon="code" />
