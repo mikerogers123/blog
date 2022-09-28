@@ -4,7 +4,7 @@ import Head from "./head";
 import Layout from "./layout";
 import { Post as PostData } from "../models/post";
 import moment from "moment";
-import Markdown from 'markdown-to-jsx';
+import Markdown from "markdown-to-jsx";
 
 type PostPageInput = {
   pageContext: PostData;
@@ -13,11 +13,13 @@ type PostPageInput = {
 const Post = (data: PostPageInput) => {
   return (
     <Layout>
-      <Head title={data.pageContext.title}/>
+      <Head title={data.pageContext.title} />
       <BackToHomeLink></BackToHomeLink>
       <h1>{data.pageContext.title}</h1>
       <p>
-        {moment(data.pageContext.dateAdded).format("MMM Do, YYYY")} | {data.pageContext.readingTime.words} words | {data.pageContext.readingTime.text}
+        {moment(data.pageContext.dateAdded).format("MMM Do, YYYY")} |{" "}
+        {data.pageContext.readingTime.words} words |{" "}
+        {data.pageContext.readingTime.text}
       </p>
       <hr></hr>
       <Markdown>{data.pageContext.contentMarkdown}</Markdown>
