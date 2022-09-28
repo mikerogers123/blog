@@ -12,25 +12,29 @@ export const createPages: GatsbyNode["createPages"] = async ({
 }) => {
   const { createPage } = actions;
 
-  const medium: {
+  const hashnodeQuery: {
     errors?: any;
-    data?: { allMediumFeed: { nodes: Post[] } };
+    data?: { allHashNodePost: { nodes: Post[] } };
   } = await graphql(`
-    query AllMediumFeedContent {
-      allMediumFeed {
-        nodes {
-          thumbnail
-          slug
-          title
-          id
-          date(formatString: "MMM Do, YYYY")
-          content
+  query {
+    allHashNodePost {
+      nodes {
+        id
+        brief
+        slug
+        title
+        readingTime {
+          words
+          text
         }
+        dateAdded
+        contentMarkdown
       }
     }
+  }
   `);
 
-  medium.data?.allMediumFeed.nodes.forEach(node => {
+  hashnodeQuery.data?.allHashNodePost.nodes.forEach(node => {
     const id = node.id;
     if (!id) return;
 
@@ -40,6 +44,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
       context: {
         ...node
       },
+      
     });
   });
 };

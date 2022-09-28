@@ -2,7 +2,6 @@ import React from "react";
 import BackToHomeLink from "./back-to-home";
 import Head from "./head";
 import Layout from "./layout";
-import ReadTime from "./read-time";
 import { Post as PostData } from "../models/post";
 
 type PostPageInput = {
@@ -16,10 +15,10 @@ const Post = (data: PostPageInput) => {
       <BackToHomeLink></BackToHomeLink>
       <h1>{data.pageContext.title}</h1>
       <p>
-        {data.pageContext.date} | <ReadTime post={data.pageContext}></ReadTime>
+        {data.pageContext.dateAdded} | {data.pageContext.readingTime.words} words | {data.pageContext.readingTime.text}
       </p>
       <hr></hr>
-      <div dangerouslySetInnerHTML={{ __html: data.pageContext.content }} />
+      <div dangerouslySetInnerHTML={{ __html: data.pageContext.contentMarkdown }} />
     </Layout>
   );
 };

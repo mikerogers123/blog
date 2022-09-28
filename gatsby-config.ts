@@ -11,13 +11,6 @@ const config: GatsbyConfig = {
   graphqlTypegen: true,
   plugins: [
     "gatsby-plugin-sass",
-    {
-      resolve: 'gatsby-source-medium-feed',
-      options: {
-        userName: '@mikerogers1357', // Medium user name
-        name: 'MediumFeed', // GraphQL query AllMediumFeed
-      },
-    },
     "gatsby-plugin-fontawesome-css",
     "gatsby-plugin-react-helmet",
     {
@@ -26,6 +19,12 @@ const config: GatsbyConfig = {
         icon: 'src/assets/images/favicon.png',
       },
     },
+    {
+      resolve: "gatsby-source-hashnode",
+      options: {
+        username: "mikerogers",
+      },
+    }
   ]
 };
 

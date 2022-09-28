@@ -1,8 +1,12 @@
 export type Post = {
-  thumbnail: string;
+  brief: string;
   slug: string;
   title: string;
   id: string;
-  date: string;
-  content: string;
+  dateAdded: string;
+  readingTime: {
+    text: string;
+    words: number;
+  }
+  contentMarkdown: string;
 };
