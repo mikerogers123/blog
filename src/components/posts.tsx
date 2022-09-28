@@ -1,4 +1,5 @@
 import { graphql, Link, useStaticQuery } from "gatsby";
+import moment from "moment";
 import React, { ChangeEvent, useState } from "react";
 import { searchMatches } from "../functions/search";
 import { Post } from "../models/post";
@@ -66,7 +67,7 @@ const postElement = (p: Post) => {
           </Link>
         </div>
         <small>
-          {p.dateAdded} | {p.readingTime.words} words | {p.readingTime.text}
+          {moment(p.dateAdded).format("MMM Do, YYYY")} | {p.readingTime.words} words | {p.readingTime.text}
         </small>
       </li>
     </>
