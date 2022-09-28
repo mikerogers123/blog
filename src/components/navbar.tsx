@@ -34,6 +34,16 @@ export default function Navbar() {
               <span property="name">GitHub</span>
             </a>
           </li>
+          <li property="itemListElement" typeof="ListItem">
+            <a
+              href="https://mikerogers.hashnode.dev/"
+              property="item"
+              typeof="WebPage"
+              className="menu-item"
+            >
+              <span property="name">hashnode</span>
+            </a>
+          </li>
           <li>
             <ThemeSelector></ThemeSelector>
           </li>
