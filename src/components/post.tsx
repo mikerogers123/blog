@@ -4,6 +4,7 @@ import Head from "./head";
 import Layout from "./layout";
 import { Post as PostData } from "../models/post";
 import moment from "moment";
+import Markdown from 'markdown-to-jsx';
 
 type PostPageInput = {
   pageContext: PostData;
@@ -19,7 +20,7 @@ const Post = (data: PostPageInput) => {
         {moment(data.pageContext.dateAdded).format("MMM Do, YYYY")} | {data.pageContext.readingTime.words} words | {data.pageContext.readingTime.text}
       </p>
       <hr></hr>
-      <div dangerouslySetInnerHTML={{ __html: data.pageContext.contentMarkdown }} />
+      <Markdown>{data.pageContext.contentMarkdown}</Markdown>
     </Layout>
   );
 };
