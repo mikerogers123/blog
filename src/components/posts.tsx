@@ -34,7 +34,7 @@ export default function Posts(): JSX.Element {
   const filteredPosts = posts.filter(searchMatches(searchTerm));
 
   return (
-    <form>
+    <form onSubmit={e => { e.preventDefault(); }}>
       <fieldset>
         <legend>({filteredPosts.length}) posts</legend>
         <div className="form-group">
