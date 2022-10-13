@@ -44,6 +44,11 @@ export default function Navbar() {
               <span property="name">hashnode</span>
             </a>
           </li>
+          <li property="itemListElement" typeof="ListItem">
+            <Link to="/contact">
+              Contact
+            </Link>
+          </li>
           <li>
             <ThemeSelector></ThemeSelector>
           </li>
