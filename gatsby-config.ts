@@ -1,4 +1,7 @@
 import type { GatsbyConfig } from "gatsby";
+import * as dotenv from "dotenv";
+
+dotenv.config({ path: `/.env.${process.env.NODE_ENV}` })
 
 const config: GatsbyConfig = {
   siteMetadata: {
@@ -24,7 +27,8 @@ const config: GatsbyConfig = {
       options: {
         username: "mikerogers",
       },
-    }
+    },
+    "gatsby-plugin-recaptcha"
   ]
 };
 

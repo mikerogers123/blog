@@ -1,5 +1,11 @@
 export enum FormState {
-  Clean = 1,
-  Success = 2,
-  Error = 3,
+  Clean,
+  Success,
+  Error,
+  Submitted
+}
+
+export enum RecaptchaFormState {
+  Verified,
+  Unverified
 }
