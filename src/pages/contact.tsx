@@ -130,7 +130,7 @@ const formAlert = (
     formState === FormState.Submitted
   ) {
     return (
-      <div className="terminal-alert terminal-alert-primary">
+      <div className="terminal-alert terminal-alert-error">
         Please verify yourself via reCAPTCHA
       </div>
     );
