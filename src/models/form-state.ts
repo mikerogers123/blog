@@ -5,7 +5,13 @@ export enum FormState {
   Submitted
 }
 
-export enum RecaptchaFormState {
-  Verified,
-  Unverified
+export class RecaptchaFormState {
+  public Token: string;
+
+  public static Unverified = new RecaptchaFormState(""); 
+  public static Verified = (token: string) => new RecaptchaFormState(token); 
+
+  private constructor(token: string) {
+    this.Token = token;
+  }
 }

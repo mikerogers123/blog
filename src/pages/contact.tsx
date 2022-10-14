@@ -36,6 +36,7 @@ const ContactPage = () => {
     Object.entries(query).forEach(([key, value]) => {
       formData.append(key, value);
     });
+    formData.append("g-recaptcha-response", recaptchaFormState.Token)
 
     axios
       .post(
@@ -99,7 +100,9 @@ const ContactPage = () => {
             <Recaptcha
               sitekey={process.env.GATSBY_RECAPTCHA_SITE_KEY}
               render="explicit"
-              verifyCallback={() => setRecaptchaFormState(RecaptchaFormState.Verified)}
+              verifyCallback={token => {
+                setRecaptchaFormState(RecaptchaFormState.Verified(token));
+              }}
               onloadCallback={() => setRecaptchaFormState(RecaptchaFormState.Unverified)}
               expiredCallback={() => {
                 setRecaptchaFormState(RecaptchaFormState.Unverified);
