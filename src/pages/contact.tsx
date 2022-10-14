@@ -97,7 +97,7 @@ const ContactPage = () => {
           </div>
           <div className="form-group">
             <Recaptcha
-              sitekey={process.env.RECAPTCHA_SITE_KEY}
+              sitekey={process.env.GATSBY_RECAPTCHA_SITE_KEY}
               render="explicit"
               verifyCallback={() => setRecaptchaFormState(RecaptchaFormState.Verified)}
               onloadCallback={() => setRecaptchaFormState(RecaptchaFormState.Unverified)}
