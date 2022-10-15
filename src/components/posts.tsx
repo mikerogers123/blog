@@ -38,13 +38,15 @@ export default function Posts(): JSX.Element {
       <fieldset>
         <legend>({filteredPosts.length}) posts</legend>
         <div className="form-group">
-          <label htmlFor="search">Search:</label>
-          <input
-            id="search"
-            type="text"
-            placeholder="e.g. azure"
-            onChange={handleChange}
-          />
+          <label>
+            Search
+            <input
+              id="search"
+              type="text"
+              placeholder="e.g. azure"
+              onChange={handleChange}
+            />
+          </label>
         </div>
         <ul>
           {filteredPosts.length > 0

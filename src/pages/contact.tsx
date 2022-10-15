@@ -86,15 +86,18 @@ const ContactPage = () => {
             </label>
           </div>
           <div className="form-group">
-            <textarea
-              id="message"
-              name="message"
-              placeholder="Lorem ipsum dolet…"
-              rows={7}
-              required
-              value={query.message}
-              onChange={handleChange()}
-            ></textarea>
+            <label>
+              Message
+              <textarea
+                id="message"
+                name="message"
+                placeholder="Lorem ipsum dolet…"
+                rows={7}
+                required
+                value={query.message}
+                onChange={handleChange()}
+              ></textarea>
+            </label>
           </div>
           <div className="form-group">
             <Recaptcha
@@ -111,7 +114,7 @@ const ContactPage = () => {
             />
           </div>
           <div className="form-group">
-            <button className="btn btn-primary" type="submit">
+            <button className="btn btn-primary" type="submit" disabled={recaptchaFormState===RecaptchaFormState.Unverified}>
               Send
             </button>
           </div>

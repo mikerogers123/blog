@@ -8,7 +8,7 @@ export default function Navbar() {
       <header className="terminal-logo">
         <div className="logo terminal-prompt">
           <Link to="/" className="no-style">
-            Mike Rogers' Blog
+            Mike Rogers | Blog
           </Link>
         </div>
       </header>
