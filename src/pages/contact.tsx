@@ -6,6 +6,7 @@ import axios from "axios";
 import { FormState, RecaptchaFormState } from "../models/form-state";
 import { Contact, defaultContact } from "../models/contact";
 import Recaptcha from "react-recaptcha";
+import { FaPaperPlane } from "react-icons/fa";
 
 const ContactPage = () => {
   const [formStatus, setFormStatus] = useState<FormState>(FormState.Clean);
@@ -115,7 +116,7 @@ const ContactPage = () => {
           </div>
           <div className="form-group">
             <button className="btn btn-primary" type="submit" disabled={recaptchaFormState===RecaptchaFormState.Unverified}>
-              Send
+              <FaPaperPlane />
             </button>
           </div>
           <div className="form-group">

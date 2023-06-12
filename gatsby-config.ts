@@ -14,7 +14,6 @@ const config: GatsbyConfig = {
   graphqlTypegen: true,
   plugins: [
     "gatsby-plugin-sass",
-    "gatsby-plugin-fontawesome-css",
     "gatsby-plugin-react-helmet",
     {
       resolve: 'gatsby-plugin-manifest',

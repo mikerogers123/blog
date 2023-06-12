@@ -1,12 +1,5 @@
-import { IconProp, library } from "@fortawesome/fontawesome-svg-core";
-import { faMoon, faSun } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
-
-library.add(
-    faMoon,
-    faSun
-)
+import { FaMoon, FaSun } from "react-icons/fa";
 
 const windowGlobal = (typeof window !== 'undefined' && window) as Window;
 
@@ -36,7 +29,7 @@ export default function ThemeSelector() {
             }
             setSelectedTheme(newThemeOption);
           }}>
-            <FontAwesomeIcon icon={iconMap[newThemeOption]} size="1x" />
+            {iconMap[newThemeOption]}
         </button>
     </div>
   );
@@ -58,9 +51,9 @@ interface Theme {
   "--code-bg-color": string;
 }
 
-const iconMap: Record<ThemeOptions, IconProp> = {
-    light: "sun",
-    dark: "moon"
+const iconMap: Record<ThemeOptions, JSX.Element> = {
+    light: <FaSun />,
+    dark: <FaMoon />
 }
 
 const themeMap: Record<ThemeOptions, Theme> = {

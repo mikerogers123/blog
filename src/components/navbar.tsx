@@ -1,6 +1,9 @@
 import { Link } from "gatsby";
 import React from "react";
 import ThemeSelector from "./theme-selector";
+import { FaLinkedinIn, FaRegEnvelope } from 'react-icons/fa';
+import { SiHashnode } from 'react-icons/si';
+import { VscGithubAlt } from 'react-icons/vsc';
 
 export default function Navbar() {
   return (
@@ -20,8 +23,10 @@ export default function Navbar() {
               property="item"
               typeof="WebPage"
               className="menu-item"
+              target="_blank" 
+              rel="noopener noreferrer"
             >
-              <span property="name">LinkedIn</span>
+              <FaLinkedinIn />
             </a>
           </li>
           <li property="itemListElement" typeof="ListItem">
@@ -30,8 +35,10 @@ export default function Navbar() {
               property="item"
               typeof="WebPage"
               className="menu-item"
+              target="_blank" 
+              rel="noopener noreferrer"
             >
-              <span property="name">GitHub</span>
+              <VscGithubAlt />
             </a>
           </li>
           <li property="itemListElement" typeof="ListItem">
@@ -40,13 +47,15 @@ export default function Navbar() {
               property="item"
               typeof="WebPage"
               className="menu-item"
+              target="_blank" 
+              rel="noopener noreferrer"
             >
-              <span property="name">hashnode</span>
+              <SiHashnode />
             </a>
           </li>
           <li property="itemListElement" typeof="ListItem">
             <Link to="/contact">
-              Contact
+              <FaRegEnvelope />
             </Link>
           </li>
           <li>
