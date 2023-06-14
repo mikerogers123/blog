@@ -1,12 +1,17 @@
 export type Post = {
-  brief: string;
   slug: string;
   title: string;
   id: string;
   dateAdded: string;
-  readingTime: {
-    text: string;
-    words: number;
-  }
-  contentMarkdown: string;
+  content: string;
+  link: string;
+};
+
+export type PostQuery = { 
+    allHashNodePost: PostSource; 
+    allMediumFeed: PostSource;
+};
+
+export type PostSource = {
+  nodes: Post[];
 };

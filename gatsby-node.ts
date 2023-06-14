@@ -4,7 +4,8 @@
 // Use the type definitions that are included with Gatsby.
 import { GatsbyNode } from "gatsby";
 import { resolve } from "path";
-import { Post } from "./src/models/post";
+import { Post, PostQuery } from "./src/models/post";
+import { getAllPosts } from "./src/functions/post";
 
 export const createPages: GatsbyNode["createPages"] = async ({
   actions,
@@ -12,29 +13,36 @@ export const createPages: GatsbyNode["createPages"] = async ({
 }) => {
   const { createPage } = actions;
 
-  const hashnodeQuery: {
+  const query:  {
     errors?: any;
-    data?: { allHashNodePost: { nodes: Post[] } };
+    data?: PostQuery;
   } = await graphql(`
   query {
     allHashNodePost {
       nodes {
         id
-        brief
         slug
         title
-        readingTime {
-          words
-          text
-        }
         dateAdded
-        contentMarkdown
+        content: contentMarkdown
+      }
+    }
+    allMediumFeed {
+      nodes {
+        id
+        slug
+        title
+        dateAdded: date
+        content
+        link
       }
     }
   }
   `);
 
-  hashnodeQuery.data?.allHashNodePost.nodes.forEach(node => {
+  const posts = query.data == null ? [] : getAllPosts(query.data!);
+
+  posts.forEach(node => {
     const id = node.id;
     if (!id) return;
 

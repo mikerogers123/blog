@@ -27,6 +27,13 @@ const config: GatsbyConfig = {
         username: "mikerogers",
       },
     },
+    {
+      resolve: "gatsby-source-medium-feed",
+      options: {
+        userName: "@mike.rogers.jet",
+        name: 'MediumFeed'
+      },
+    },
     "gatsby-plugin-recaptcha"
   ]
 };

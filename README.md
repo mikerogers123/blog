@@ -12,9 +12,11 @@ Site accessible at https://mrogers.dev/.
 
 ## App overview
 
-The posts are currently all written via _hashnode_. You can see my profile at https://hashnode.com/@mikerogers. Of course, building the site using Gatsby gives me the ability to create new blog posts easily directly in source code, by adding markdown files to the `/src/pages` directory, but whilst the blog is in its infancy, I can achieve a larger audience by posting to hashnode.
+Post sources:
+* https://hashnode.com/@mikerogers
+* https://medium.com/@mike.rogers.jet
 
-The posts are retrieved using the [gatsby-source-hashnode plugin](https://www.gatsbyjs.com/plugins/gatsby-source-hashnode/). The key thing to note is that the request to retrieve posts is not made when a user visits the site, it is **only** made when the site is built. The end result is that this site is completely static (no API requests or page loads when navigating between pages), giving better performance and overall user experience. This was a key reason for choosing Gatsby; the pages for each blog post are generated during the build process.
+The posts are retrieved using the [gatsby-source-hashnode plugin](https://www.gatsbyjs.com/plugins/gatsby-source-hashnode/) and [gatsby-source-medium-feed](https://www.gatsbyjs.com/plugins/gatsby-source-medium-feed/) plugins. The key thing to note is that requests to retrieve posts is not made on load, but **only** when the site is built. The end result is that this site is completely static (no API requests or page loads when navigating between pages), giving better performance and overall user experience. This was a key reason for choosing Gatsby; the pages for each blog post are generated during the build process.
 
 ## 🚀 Quick start
 

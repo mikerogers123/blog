@@ -2,7 +2,9 @@ import { graphql, Link, useStaticQuery } from "gatsby";
 import moment from "moment";
 import React, { ChangeEvent, useState } from "react";
 import { searchMatches } from "../functions/search";
-import { Post } from "../models/post";
+import { Post, PostQuery } from "../models/post";
+import { getAllPosts } from "../functions/post";
+import { calculateReadingTime } from "../functions/reading-time";
 
 export default function Posts(): JSX.Element {
   const [searchTerm, setSearchTerm] = useState("");
@@ -11,26 +13,30 @@ export default function Posts(): JSX.Element {
     setSearchTerm(evt.target.value);
   };
 
-  const data = useStaticQuery(graphql`
+  const query: PostQuery = useStaticQuery(graphql`
     query {
       allHashNodePost {
         nodes {
           id
-          brief
           slug
           title
-          readingTime {
-            words
-            text
-          }
           dateAdded
-          contentMarkdown
+          content: contentMarkdown
+        }
+      }
+      allMediumFeed {
+        nodes {
+          id
+          slug
+          title
+          dateAdded: date
+          content
         }
       }
     }
   `);
 
-  const posts = data.allHashNodePost.nodes as Array<Post>;
+  const posts = getAllPosts(query);
   const filteredPosts = posts.filter(searchMatches(searchTerm));
 
   return (
@@ -69,7 +75,7 @@ const postElement = (p: Post) => {
           </Link>
         </div>
         <small>
-          {moment(p.dateAdded).format("MMM Do, YYYY")} | {p.readingTime.words} words | {p.readingTime.text}
+          {moment(p.dateAdded).format("MMM Do, YYYY")} | {calculateReadingTime(p.content)} min read
         </small>
       </li>
     </>
