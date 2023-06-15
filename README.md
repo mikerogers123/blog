@@ -1,10 +1,10 @@
-# Mike Rogers - personal blog
+# mrogers.dev
 
-Site accessible at https://mrogers.dev/.
+Mike Rogers' personal blog.
 
 ## 🚀 Features
 
-* Built using the popular GatsbyJS framework for a better user experience
+* Built using the GatsbyJS framework
 * Full TypeScript integration
 * [Terminal CSS](https://terminalcss.xyz/) used as a CSS framework
 * Dark/light themes - user preference persisted
@@ -46,28 +46,8 @@ The posts are retrieved using the [gatsby-source-hashnode plugin](https://www.ga
     npm run develop
     ```
 
-    The site runs at http://localhost:8000.
-
-    Edit any `<component>.tsx` file to see updates in real-time.
-
-4.  **Learn more about GatsbyJS**
-
-    - [Documentation](https://www.gatsbyjs.com/docs/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
-
-    - [Tutorials](https://www.gatsbyjs.com/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
-
-    - [Guides](https://www.gatsbyjs.com/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
-
-    - [API Reference](https://www.gatsbyjs.com/docs/api-reference/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
-
-    - [Plugin Library](https://www.gatsbyjs.com/plugins?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
-
-    - [Cheat Sheet](https://www.gatsbyjs.com/docs/cheat-sheet/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
+    The site runs at http://localhost:8000. Edit any file to see updates in real-time (unless you change `gatsby-node.ts` - then you will need a fresh build).
 
 ## 🚀 Continuous Integration/Delivery
 
 Site is deployed and hosted with [Gatsby Cloud](https://www.gatsbyjs.com/cloud/).
-
-Changes to the `main` branch triggers a build of the site. 
-
-> note that if there are any new blog posts on my _hashnode_ feed, they will only be shown if there has been a subsequent build of the site, since posts are retrieved once per build.
