@@ -1,10 +1,9 @@
 import { graphql, Link, useStaticQuery } from "gatsby";
-import moment from "moment";
 import React, { ChangeEvent, useState } from "react";
 import { searchMatches } from "../functions/search";
 import { Post, PostQuery } from "../models/post";
 import { getAllPosts } from "../functions/post";
-import { calculateReadingTime } from "../functions/reading-time";
+import PostMetadata from "./post-metadata";
 
 export default function Posts(): JSX.Element {
   const [searchTerm, setSearchTerm] = useState("");
@@ -74,9 +73,7 @@ const postElement = (p: Post) => {
             {p.title}
           </Link>
         </div>
-        <small>
-          {moment(p.dateAdded).format("MMM Do, YYYY")} | {calculateReadingTime(p.content)} min read
-        </small>
+        <PostMetadata post={p}></PostMetadata>
       </li>
     </>
   );

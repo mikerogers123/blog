@@ -1,7 +1,7 @@
 import React from "react";
 import { Helmet } from "react-helmet";
 
-const Head = ({ title }: {title:string}) => {
+export default function Head({ title }: {title:string}) {
   return (
     <>
       <Helmet
@@ -12,5 +12,3 @@ const Head = ({ title }: {title:string}) => {
     </>
   );
 };
-
-export default Head;
