@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/5169c970-5584-4365-a5fc-7d2e9f2867f1/deploy-status)](https://app.netlify.com/sites/mrogers-blog/deploys)
+
 # mrogers.dev
 
 Mike Rogers' personal blog.
