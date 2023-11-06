@@ -34,7 +34,8 @@ const config: GatsbyConfig = {
         name: 'MediumFeed'
       },
     },
-    "gatsby-plugin-recaptcha"
+    "gatsby-plugin-recaptcha",
+    "gatsby-plugin-netlify"
   ]
 };
 
