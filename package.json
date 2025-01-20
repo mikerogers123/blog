@@ -17,7 +17,7 @@
   },
   "dependencies": {
     "@types/moment": "^2.13.0",
-    "axios": "^0.21.4",
+    "axios": "^1.7.9",
     "gatsby": "^4.21.1",
     "gatsby-plugin-manifest": "^4.22.0",
     "gatsby-plugin-netlify": "^5.1.1",
