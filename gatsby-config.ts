@@ -22,9 +22,10 @@ const config: GatsbyConfig = {
       },
     },
     {
-      resolve: "gatsby-source-hashnode",
+      resolve: "gatsby-source-medium-feed",
       options: {
-        username: "mikerogers",
+        userName: "@mikerogers1357",
+        name: 'PersonalMediumFeed'
       },
     },
     {
@@ -34,7 +35,6 @@ const config: GatsbyConfig = {
         name: 'MediumFeed'
       },
     },
-    "gatsby-plugin-recaptcha",
     "gatsby-plugin-netlify"
   ]
 };
