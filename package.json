@@ -34,7 +34,7 @@
     "react-icons": "^4.9.0",
     "react-recaptcha": "^2.3.10",
     "sass": "^1.54.5",
-    "terminal.css": "^0.7.2"
+    "terminal.css": "^0.7.5"
   },
   "devDependencies": {
     "@types/node": "^17.0.45",
