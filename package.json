@@ -33,7 +33,7 @@
     "react-helmet": "^6.1.0",
     "react-icons": "^4.9.0",
     "react-recaptcha": "^2.3.10",
-    "sass": "^1.54.5",
+    "sass": "^1.83.4",
     "terminal.css": "^0.7.2"
   },
   "devDependencies": {
