@@ -8,7 +8,7 @@ export type Post = {
 };
 
 export type PostQuery = { 
-    allHashNodePost: PostSource; 
+    allPersonalMediumFeed: PostSource; 
     allMediumFeed: PostSource;
 };
 

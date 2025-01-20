@@ -4,7 +4,7 @@
 // Use the type definitions that are included with Gatsby.
 import { GatsbyNode } from "gatsby";
 import { resolve } from "path";
-import { Post, PostQuery } from "./src/models/post";
+import { PostQuery } from "./src/models/post";
 import { getAllPosts } from "./src/functions/post";
 
 export const createPages: GatsbyNode["createPages"] = async ({
@@ -18,13 +18,14 @@ export const createPages: GatsbyNode["createPages"] = async ({
     data?: PostQuery;
   } = await graphql(`
   query {
-    allHashNodePost {
+    allPersonalMediumFeed {
       nodes {
         id
         slug
         title
-        dateAdded
-        content: contentMarkdown
+        dateAdded: date
+        content
+        link
       }
     }
     allMediumFeed {

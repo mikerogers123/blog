@@ -14,13 +14,13 @@ export default function Posts(): JSX.Element {
 
   const query: PostQuery = useStaticQuery(graphql`
     query {
-      allHashNodePost {
+      allPersonalMediumFeed {
         nodes {
           id
           slug
           title
-          dateAdded
-          content: contentMarkdown
+          dateAdded: date
+          content
         }
       }
       allMediumFeed {
