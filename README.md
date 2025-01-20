@@ -1,6 +1,6 @@
-[![Netlify Status](https://api.netlify.com/api/v1/badges/5169c970-5584-4365-a5fc-7d2e9f2867f1/deploy-status)](https://app.netlify.com/sites/mrogers-blog/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/5169c970-5584-4365-a5fc-7d2e9f2867f1/deploy-status)](https://app.netlify.com/sites/mrogers-blog/deploys) [![CI](https://github.com/mikerogers123/blog/actions/workflows/ci.yml/badge.svg)](https://github.com/mikerogers123/blog/actions/workflows/ci.yml)
 
-# mrogers.dev
+# [mrogers.dev](https://mrogers.dev/)
 
 Mike Rogers' personal blog.
 
@@ -10,7 +10,8 @@ Mike Rogers' personal blog.
 * Full TypeScript integration
 * [Terminal CSS](https://terminalcss.xyz/) used as a CSS framework
 * Dark/light themes - user preference persisted
-* Gatsby Cloud used for rapid deployments and easy hosting
+* Netlify used for rapid deployments and easy hosting
+* GitHub Actions for PR builds
 
 ## App overview
 
@@ -18,7 +19,7 @@ Post sources:
 * https://medium.com/@mikerogers1357
 * https://medium.com/@mike.rogers.jet
 
-The posts are retrieved using the [gatsby-source-medium-feed](https://www.gatsbyjs.com/plugins/gatsby-source-medium-feed/) plugin. The key thing to note is that requests to retrieve posts is not made on load, but **only** when the site is built. The end result is that this site is completely static (no API requests or page loads when navigating between pages), giving better performance and overall user experience. This was a key reason for choosing Gatsby; the pages for each blog post are generated during the build process.
+The posts are retrieved using the [gatsby-source-medium-feed](https://www.gatsbyjs.com/plugins/gatsby-source-medium-feed/) plugin. The key thing to note is that requests to retrieve posts is not made on load, but **only** when the site is built. The end result is that this site is completely static (no API requests or page loads when navigating between pages), giving better performance and overall user experience.
 
 ## 🚀 Quick start
 
@@ -45,6 +46,7 @@ The posts are retrieved using the [gatsby-source-medium-feed](https://www.gatsby
 
     ```shell
     cd blog/
+    npm run build
     npm run develop
     ```
 
@@ -52,4 +54,6 @@ The posts are retrieved using the [gatsby-source-medium-feed](https://www.gatsby
 
 ## 🚀 Continuous Integration/Delivery
 
-Site is deployed and hosted with [Gatsby Cloud](https://www.gatsbyjs.com/cloud/).
+PR builds are triggered via [GitHub Actions](https://github.com/mikerogers123/blog/actions). Netlify integration is enabled on PRs as well, so you can see deployments against a branch.
+
+Site is deployed and hosted with [Netlify](https://www.netlify.com/).
